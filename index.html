@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Menu Card</title>
+      <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+      <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+      <script src="./js/addButtons.js"></script>
+    
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    
+      <!-- Local StyleSheet -->
+      <link href="./style.css" rel="stylesheet"/>
+      
+      <!--Marker Handler Src-->
+      <script src="./js/MarkerHandler.js"></script>
+      
+      <script src="./js/createMarker.js"></script>
+    
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+      <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyBFcxBkXbxEzegzs0QmQUk7Wdu2RH4xvjw",
+          authDomain: "ar-toy-store-873bf.firebaseapp.com",
+          projectId: "ar-toy-store-873bf",
+          storageBucket: "ar-toy-store-873bf.appspot.com",
+          messagingSenderId: "362633862549",
+          appId: "1:362633862549:web:19f2e18fcc8e65275f2a9c"
+        };
+        firebase.initializeApp(firebaseConfig)
+      </script>
+        
+    </head>
+    <body>
+      <a-scene 
+        id="scene" 
+        embedded vr-mode-ui="enabled: false"     
+        arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+        gesture-detector
+        create-buttons
+        create-marker>
+
+         <!-- Camera -->
+        <a-entity camera></a-entity>
+
+      </a-scene>
+
+      <div id="button-div"></div>
+    </body>
+</html>
